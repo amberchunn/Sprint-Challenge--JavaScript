@@ -7,12 +7,10 @@ class NewCuboidMaker {
 		this.height = height;
     }
     volume() {
-    const volume = length * width * height;
-    return volume;
+    return this.length * this.width * this.height;
     }
     surfaceArea() {
-    const surface = 2 * (length * width + length * height + width * height);
-    return surface;
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
     }
 }
 class NewCuboid extends NewCuboidMaker {
@@ -28,3 +26,19 @@ console.log(cuboid.volume()); // 100
 console.log(cuboid.surfaceArea()); // 130
 
 // Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area.
+class Cube extends NewCuboidMaker{
+    constructor(length, width, height) {
+        super(length, width, height);
+    }
+    cubeVolume() {
+        return this.length * this.width * this.height;
+    }
+    cubeSurfaceArea() {
+        return 6 * (this.length * this.width * this.height);
+    }
+}
+
+const newCube = new Cube(4, 5, 5);
+
+console.log(newCube.cubeVolume());
+console.log(newCube.cubeSurfaceArea());
